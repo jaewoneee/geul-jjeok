@@ -10,6 +10,7 @@ import {
   View,
 } from "react-native";
 import { supabase } from "../../lib/supabase";
+import GoogleLoginButton from "./_components/GoogleLoginButton";
 
 type Mode = "signin" | "signup";
 
@@ -119,9 +120,10 @@ export default function AuthScreen() {
         </TouchableOpacity>
 
         {/* 구글 로그인 붙일 때 활성화 (AuthSession 프록시) */}
-        {/* <TouchableOpacity onPress={signInWithGoogle} style={[btnOutline]}>
-          <Text style={[btnText, { color: '#111' }]}>Google로 계속하기</Text>
+        {/* <TouchableOpacity onPress={signInWithGoogle}>
+          <Text style={[btnText, { color: "#111" }]}>Google로 계속하기</Text>
         </TouchableOpacity> */}
+        <GoogleLoginButton />
       </View>
     </SafeAreaView>
   );
