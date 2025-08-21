@@ -42,9 +42,6 @@ export default function RootLayout() {
       console.log(2);
       // 로그인되지 않은 상태에서 tabs 페이지에 있으면 로그인으로 이동
       router.replace("/(auth)");
-    } else {
-      console.log(3);
-      router.replace("/(tabs)");
     }
   }, [session, segments, isLoading]);
 
