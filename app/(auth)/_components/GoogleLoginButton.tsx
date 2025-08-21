@@ -161,7 +161,7 @@ const GoogleLoginButton = () => {
   console.log(user);
   if (user) {
     return (
-      <View style={styles.container}>
+      <View>
         <View style={styles.userInfo}>
           <Text style={styles.welcomeText}>환영합니다!</Text>
           <Text style={styles.userText}>이메일: {user.email}</Text>
@@ -191,45 +191,27 @@ const GoogleLoginButton = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Google 로그인</Text>
-
-      <TouchableOpacity
-        style={[styles.button, styles.googleButton]}
-        onPress={signInWithGoogle}
-        disabled={isLoading}
-      >
-        {isLoading ? (
-          <ActivityIndicator color="#ffffff" size="small" />
-        ) : (
-          <Text style={styles.buttonText}>Google로 로그인</Text>
-        )}
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      style={[styles.button, styles.googleButton]}
+      onPress={signInWithGoogle}
+      disabled={isLoading}
+    >
+      {isLoading ? (
+        <ActivityIndicator color="#ffffff" size="small" />
+      ) : (
+        <Text style={styles.buttonText}>Google로 로그인</Text>
+      )}
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    backgroundColor: "#f5f5f5",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 30,
-    color: "#333",
-  },
   button: {
-    width: "80%",
+    width: "100%",
     height: 50,
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 10,
   },
   googleButton: {
     backgroundColor: "#4285F4",

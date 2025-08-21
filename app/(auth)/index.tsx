@@ -5,7 +5,6 @@ import { useState } from "react";
 import {
   ActivityIndicator,
   SafeAreaView,
-  Text,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -86,8 +85,8 @@ export default function AuthScreen() {
           />
         )}
 
-        {!!err && <Text style={{ color: "crimson" }}>{err}</Text>}
-        {!!msg && <Text style={{ color: "teal" }}>{msg}</Text>}
+        {!!err && <ThemedText style={{ color: "crimson" }}>{err}</ThemedText>}
+        {!!msg && <ThemedText style={{ color: "teal" }}>{msg}</ThemedText>}
 
         <TouchableOpacity
           onPress={submit}
@@ -97,9 +96,9 @@ export default function AuthScreen() {
           {busy ? (
             <ActivityIndicator />
           ) : (
-            <Text style={btnText}>
+            <ThemedText style={btnText}>
               {mode === "signin" ? "로그인" : "가입하기"}
-            </Text>
+            </ThemedText>
           )}
         </TouchableOpacity>
 
@@ -118,11 +117,7 @@ export default function AuthScreen() {
               : "이미 계정이 있나요? 로그인"}
           </ThemedText>
         </TouchableOpacity>
-
-        {/* 구글 로그인 붙일 때 활성화 (AuthSession 프록시) */}
-        {/* <TouchableOpacity onPress={signInWithGoogle}>
-          <Text style={[btnText, { color: "#111" }]}>Google로 계속하기</Text>
-        </TouchableOpacity> */}
+        {/* 구글 로그인*/}
         <GoogleLoginButton />
       </View>
     </SafeAreaView>
