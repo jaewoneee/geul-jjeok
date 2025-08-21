@@ -1,4 +1,5 @@
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { AuthProvider } from "@/providers/auth";
 import {
   DarkTheme,
   DefaultTheme,
@@ -39,11 +40,11 @@ export default function RootLayout() {
     if (isLoading) return;
 
     const inAuthGroup = segments[0] === "(auth)";
-    const inTabsGroup = segments[0] === "(tabs)";
+    const inTabsGroup = segments[0] === "(main)";
 
     if (session && inAuthGroup) {
       // 로그인된 상태에서 auth 페이지에 있으면 메인으로 이동
-      router.replace("/(tabs)");
+      router.replace("/(main)");
     } else if (!session && inTabsGroup) {
       // 로그인되지 않은 상태에서 tabs 페이지에 있으면 로그인으로 이동
       router.replace("/(auth)");
@@ -56,12 +57,14 @@ export default function RootLayout() {
   // }
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="(auth)" />
-        {/* <Stack.Screen name="models" options={{ presentation: "modal" }} /> */}
-      </Stack>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(main)" />
+          <Stack.Screen name="(auth)" />
+          {/* <Stack.Screen name="models" options={{ presentation: "modal" }} /> */}
+        </Stack>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }

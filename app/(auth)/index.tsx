@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import GoogleLoginButton from "../../components/ui/auth/GoogleLoginButton";
 import { supabase } from "../../lib/supabase";
-import GoogleLoginButton from "./_components/GoogleLoginButton";
 
 type Mode = "signin" | "signup";
 
