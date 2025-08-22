@@ -20,7 +20,6 @@ export default function RootLayout() {
   useEffect(() => {
     // 초기 세션 확인
     supabase.auth.getSession().then(({ data: { session } }) => {
-      console.log({ session });
       setSession(session);
       setIsLoading(false);
     });

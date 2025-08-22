@@ -1,12 +1,15 @@
 import { ThemedButton } from "@/components/ThemedButton";
 import { ThemedText } from "@/components/ThemedText";
-import { signOut } from "@/lib/auth";
+import { useProfile } from "@/hooks/database/useProfile";
+import { useAuth } from "@/providers/auth";
 import { useRouter } from "expo-router";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SettingScreen() {
   const router = useRouter();
+  const { signOut } = useAuth();
+  const { profile } = useProfile();
 
   const onPressLogout = async () => {
     try {
@@ -18,7 +21,7 @@ export default function SettingScreen() {
   };
   return (
     <SafeAreaView>
-      <ThemedText>Setting</ThemedText>
+      <ThemedText>{`안녕하세요 ${profile?.username}`}</ThemedText>
       <ThemedButton label="Logout" onPress={onPressLogout} />
     </SafeAreaView>
   );

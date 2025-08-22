@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import React, { useEffect } from "react";
+import React from "react";
 import { Platform } from "react-native";
 
 import { HapticTab } from "@/components/HapticTab";
@@ -10,12 +10,6 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function MainLayout() {
   const colorScheme = useColorScheme();
-
-  useEffect(() => {
-    console.log("TabLayout mounted");
-  }, []);
-
-  console.log("TabLayout rendering");
 
   return (
     <Tabs

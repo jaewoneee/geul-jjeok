@@ -97,7 +97,6 @@ export const ThemedButton = forwardRef<View, ThemedButtonProps>(
       if (isDisabled) return;
       onPress?.(e);
     };
-    console.log(backgroundBase, borderBase, textColorBase);
     // 사이즈별 스타일
     const sizeBox =
       size === "sm" ? styles.sm : size === "lg" ? styles.lg : styles.md;
