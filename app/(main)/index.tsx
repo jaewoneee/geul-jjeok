@@ -1,13 +1,13 @@
-import TodayWritingInput from "@/components/ui/main/TodayWritingInput";
-import WritingList from "@/components/ui/main/WritingList";
+import PostList from "@/components/ui/main/PostList";
+import TodayWritingInput from "@/components/ui/main/TodayPostInput";
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 
-export default function HomeScreen() {
+export default function MainScreen() {
   return (
     <SafeAreaView>
       <TodayWritingInput />
-      <WritingList />
+      <PostList />
     </SafeAreaView>
   );
 }

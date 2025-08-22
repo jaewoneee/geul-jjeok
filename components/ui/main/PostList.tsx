@@ -3,7 +3,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { FlatList, ScrollView } from "react-native";
 const data = ["사과", "바나나", "포도"];
 
-const WritingItem = ({ item }: { item: string }) => {
+const PostItem = ({ item }: { item: string }) => {
   return (
     <ThemedView
       style={{ padding: 10, borderBottomWidth: 1, borderColor: "#ccc" }}
@@ -13,16 +13,16 @@ const WritingItem = ({ item }: { item: string }) => {
   );
 };
 
-const WritingList = () => {
+const PostList = () => {
   return (
     <ScrollView>
       <FlatList
         data={data}
         keyExtractor={(item, idx) => idx.toString()}
-        renderItem={({ item }) => <WritingItem item={item} />}
+        renderItem={({ item }) => <PostItem item={item} />}
       />
     </ScrollView>
   );
 };
 
-export default WritingList;
+export default PostList;

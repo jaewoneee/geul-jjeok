@@ -2,7 +2,7 @@ import { ThemedInput } from "@/components/ThemedInput";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 
-const TodayWritingInput = () => {
+const TodayPostInput = () => {
   return (
     <ThemedView>
       <ThemedText>오늘의 글쩍</ThemedText>
@@ -10,4 +10,4 @@ const TodayWritingInput = () => {
     </ThemedView>
   );
 };
-export default TodayWritingInput;
+export default TodayPostInput;
